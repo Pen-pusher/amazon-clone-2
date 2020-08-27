@@ -1,14 +1,6 @@
 export const initialState = {
-  basket: [
-    {
-      id: "12321341",
-      title:
-        "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
-      price: 11.96,
-      rating: 5,
-      image: "https://m.media-amazon.com/images/I/81-QB7nDh4L._AC_UY218_.jpg",
-    },
-  ],
+  basket: [],
+  user: null,
 };
 
 export const getBasketTotal = (basket) => {
@@ -16,8 +8,9 @@ export const getBasketTotal = (basket) => {
 };
 
 const reducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
+    case "SET_USER":
+      return { ...state, user: action.user };
     case "ADD_TO_BASKET":
       return {
         ...state,
